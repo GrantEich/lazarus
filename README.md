@@ -1,8 +1,7 @@
-# Solib
+# Lazarus
 
 **Solana** friendly API
 
-Checkout [the complete docs](https://solib-docs.vercel.app)!
 
 # Current Capabilities
 
@@ -20,11 +19,11 @@ Checkout [the complete docs](https://solib-docs.vercel.app)!
 
 ### Init
 
-The init function needs to be called to prepare `solib` to be able to call all
+The init function needs to be called to prepare `Lazarus` to be able to call all
 the functions in its API.
 
 ```ts
-import { init } from 'solib'
+import { init } from 'Lazarus'
 
 init(
   {
@@ -37,8 +36,8 @@ init(
       new WalletConnectConnector({
         relayerRegion: 'wss://relay.walletconnect.com',
         metadata: {
-          description: 'Test app for solib',
-          name: 'Test Solib dApp',
+          description: 'Test app for Lazarus',
+          name: 'Test Lazarus dApp',
           icons: ['https://avatars.githubusercontent.com/u/37784886'],
           url: 'http://localhost:3000'
         },
@@ -65,7 +64,7 @@ The connect function can be used to connect a wallet to a dApp. The wallet
 chosen needs to be configured in the `init` function above.
 
 ```ts
-import { connect } from 'solib'
+import { connect } from 'Lazarus'
 
 const address = await connect()
 ```
@@ -76,7 +75,7 @@ Instead of retrieving the address once on the connect function, one can globally
 watch address changes using the `watchAddress` API.
 
 ```ts
-import { watchAddress, connect } from 'solib'
+import { watchAddress, connect } from 'Lazarus'
 
 watchAddress(address => {
   console.log({ address })
@@ -88,7 +87,7 @@ connect()
 ### Get Balance
 
 ```ts
-import { getBalance } from 'solib'
+import { getBalance } from 'Lazarus'
 
 const connectedWalletBalance: number = await getBalance()
 ```
@@ -96,7 +95,7 @@ const connectedWalletBalance: number = await getBalance()
 ### Sign Message
 
 ```ts
-import { signMessage } from 'solib'
+import { signMessage } from 'Lazarus'
 
 const signature = await signMessage('Test')
 ```
@@ -104,7 +103,7 @@ const signature = await signMessage('Test')
 ### Sign and Send Transaction
 
 ```ts
-import { signAndSendTransaction } from 'solib'
+import { signAndSendTransaction } from 'Lazarus'
 
 const transactionHash = signAndSendTransaction('transfer', {
   to,
@@ -116,7 +115,7 @@ const transactionHash = signAndSendTransaction('transfer', {
 ### Watch Transaction
 
 ```ts
-import { signAndSendTransaction, watchTransaction } from 'solib'
+import { signAndSendTransaction, watchTransaction } from 'Lazarus'
 
 const transactionHash = signAndSendTransaction('transfer', {
   to,
@@ -130,7 +129,7 @@ watchTransaction(transactionHash, update => console.log({ update }))
 ### Switch network
 
 ```ts
-import { switchNetwork, mainnetBetaProjectSerum } from 'solib'
+import { switchNetwork, mainnetBetaProjectSerum } from 'Lazarus'
 
 switchNetwork(mainnetBetaProjectSerum)
 ```
@@ -138,7 +137,7 @@ switchNetwork(mainnetBetaProjectSerum)
 ### Switch Connector
 
 ```ts
-import { switchConnector, PhantomConnector, connect } from 'solib'
+import { switchConnector, PhantomConnector, connect } from 'Lazarus'
 
 switchConnector(PhantomConnector.connectorName)
 
@@ -161,7 +160,7 @@ const phantonWalletAddress = await connect()
 # Development
 
 For now when developing, feel free to use the `example/dev.sh` to help with
-refreshing the cache and installing a fresh local `solib` package to test your
+refreshing the cache and installing a fresh local `Lazarus` package to test your
 changes. TODO: Will look into making this better.
 
 # Folders
